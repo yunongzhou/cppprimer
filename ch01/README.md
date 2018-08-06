@@ -43,3 +43,23 @@ int main(){
   return 0;
 } // main
 ```
+
+## ex1.6
+> Explain whether the following program fragment is legal.
+```cpp
+std::cout << "The sum of " << v1;
+          << " and " << v2;
+          << " is " << v1 + v2 << std::endl;
+```
+> If the program is legal, what does it do? If the program is not legal, why not?
+> How would you fix it?
+
+It is not legal, because the left hand operand of `<<` operator must be an ostream object.
+Fix it.
+```cpp
+std::cout << "The sum of " << v1;
+std::cout << " and " << v2;
+std::cout << " is " << v1 + v2;
+std::cout << std::endl;
+```
+
