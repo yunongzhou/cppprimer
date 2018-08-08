@@ -62,4 +62,52 @@ std::cout << " and " << v2;
 std::cout << " is " << v1 + v2;
 std::cout << std::endl;
 ```
+## ex1.7
+> Compile a program that has incorrectly nested comments.
+
+```cpp
+#include<iostream>
+
+int main(){
+   /* /*Comment pairs do not nest.*/ */
+  return 0;
+}
+```
+
+## ex1.8
+> Indicate which, if any, of the following output statements are legal:
+```cpp
+std::cout << "/*";
+std::cout << "*/";
+std::cout << /* "*/" */;
+std::cout << /* "*/" /* "/*" */;
+```
+> After you've predicted what will happen, test your answers by compiling a program with
+> each of these statements. Correct any errors you encounter.
+
+The first statement is correct.
+The second statement is correct.
+The third statement is illegal, the correct statement should be
+```cpp
+std::cout << /* */"*/";
+```
+The fourth statement is illegal, the correct statement shoule be 
+```cpp
+std::cout << /*  */ "/* " /* */;
+```
+
+## ex1.9
+> Write a program that uses a while to sum the numbers from 50 to 100.
+```cpp
+#include<iostream>
+
+int main(){
+  int n = 50, sum = 0;
+  while(n <= 100){
+    sum += n;
+    ++n;
+  }
+  std::cout << sum << std::endl;
+} // main
+```
 
