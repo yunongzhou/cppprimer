@@ -110,6 +110,7 @@ int main(){
   std::cout << sum << std::endl;
 } // main
 ```
+
 ## ex1.10
 > In addition to the ++ operator that adds 1 to its operand, there is a decrement
 > operator (--) that substracts 1. Use the decrement operator to write a while that
@@ -124,4 +125,91 @@ int main(){
   }
   return 0;
 }
+```
+
+## ex1.11
+> Write a program that prompts the user for two integers. Print each number in the range
+> specified by those two integers.
+```cpp
+#include<iostream>
+
+int main(){
+  std::cout << "Enter two integers:";
+  int a, b, left, right;
+  std::cin >> a >> b;
+  left = a < b ? a : b;
+  right = a > b ? a : b;
+  while( left <= right){
+    std::cout << (left++) << " ";
+  }
+  return 0;
+} // main
+```
+
+## ex1.12
+> What does the following for loop do? What is the final value of sum?
+```cpp
+int sum = 0;
+for(int i = -100; i <= 100; ++i)
+  sum += i;
+```
+The for loop compute the sum of integers from -100 to 100. The solution should be 0.
+
+## ex1.13
+> Rewrite the exercises from 1.4.1(p.13) using for loops.
+```cpp
+#include<iostream>
+
+int main(){
+  int sum = 0;
+  for(int i = 50; i <= 100; sum+=(i++));
+  std::cout << sum << std::endl;
+} // main
+```
+```cpp
+#include<iostream>
+
+int main(){
+  for(int n = 10; n >= 0; std::cout << n-- << std::endl);
+  return 0;
+} // main
+```
+```cpp
+#include<iostream>
+
+int main(){
+  std::cout << "Enter two integers:";
+  int a, b, left, right;
+  std::cin >> a >> b;
+  left = a < b ? a : b;
+  right = a > b ? a : b;
+  for(int i = left; left <= right; std::cout << left++ << "\n");
+  return 0;
+} // main
+```
+
+## ex1.14
+> Compare and contrast the loops that used a for with those using a while.
+> Are there advantages or disadvantages to using either form?
+
+TODO
+
+## ex1.15
+> Write programs that contain the commen errors discussed in the box on page 16. 
+> Familiarize yourself with the messages the compiler generates.
+
+TODO
+
+## ex1.16
+>Write your own version of a program that prints the sum of a set of integers read from cin.
+```cpp
+#include<iostream>
+
+int main(){
+  int n;
+  int sum = 0;
+  for(sum = 0; std::cin >> n; sum += n);
+  std::cout << sum << std::endl;
+  return 0;
+} // main
 ```
