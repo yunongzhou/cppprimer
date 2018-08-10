@@ -7,4 +7,5 @@
 ```
 ## Contents
 -[Chapter 1. Getting Started](ch01/README.md)
+
 -[Chapter 2. Variables and Basic Types](ch02/README.md)
