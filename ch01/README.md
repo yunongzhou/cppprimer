@@ -201,7 +201,7 @@ TODO
 TODO
 
 ## ex1.16
->Write your own version of a program that prints the sum of a set of integers read from cin.
+> Write your own version of a program that prints the sum of a set of integers read from cin.
 ```cpp
 #include<iostream>
 
@@ -213,3 +213,105 @@ int main(){
   return 0;
 } // main
 ```
+
+## ex1.17
+> What happens in the program presented in this section if the input values are equal? What if
+> there are no duplicated values?
+
+If the input values are all equal, the output would be a line that shows the count of the value.
+If there are no duplicated values, a new line will be output when press enter.
+
+## ex1.18
+omitted
+
+## ex1.19
+omitted
+
+## ex1.20
+> Copy Sales_item.h to your working directory. Use it to write a program that reads a 
+> set of book sales transactions, writing each transaction to the standard output.
+```cpp
+#include<iostream>
+#include "Sales_item.h"
+
+int main(){
+  Sales_item item;
+  while(std::cin >> item){
+    std::cout << item << std::endl;
+  }
+  return 0;
+} // main
+```
+
+## ex1.21
+> Write a program that reads two Sales_item objects that have the same ISBN and produces
+> their sum.
+```cpp
+#include<iostream>
+#include "Sales_item.h"
+
+int main(){
+  Sales_item item1, item2;
+  std::cout << "Input two items with same ISBN:";
+  std::cin >> item1 >> item2;
+  if(item1.isbn() != item2.isbn()){
+    std::cerr << "ISBN not the same!";
+    exit(0);
+  }
+  else{
+    std::cout << item1 + item2 << std::endl;
+  }
+  return 0;
+} // main
+```
+## ex1.22
+> Write a program that reads several transactions for the same ISBN. Write the sum of 
+> all the transactions that were read.
+```cpp
+#include<iostream>
+#include "Sales_item.h"
+
+int main(){
+  Sales_item item, sum;
+  while(std::cin >> item){
+    sum += item;
+  }
+  std::cout << sum << std::endl;
+  return 0;
+} // main
+```
+
+## ex1.23
+> Write a program that reads several transactions and counts how many transactions occur
+> for each ISBN.
+```cpp
+
+#include<iostream>
+#include "Sales_item.h"
+
+int main(){
+  Sales_item item1, item2;
+  int countItem;
+  if(std::cin >> item1){
+    countItem = 1;
+    while(std::cin >> item2){
+      if(item1.isbn() == item2.isbn()){
+        countItem++;
+      }
+      else{
+        std::cout << item1.isbn() << " occurs " << countItem << " times.\n";
+        countItem = 1;
+        item1 = item2;
+      }
+    }
+    std::cout << item1.isbn() << " occurs " << countItem << " time.\n";
+  }
+  return 0;
+}
+```
+
+## ex1.24
+omitted
+
+## ex1.25
+omitted
