@@ -78,3 +78,111 @@ int main(){
   std::cout << "2\t\115\12" << std::endl;
 } // main
 ```
+
+## ex2.09
+> Explain the following definitions. For those that are illegal, explain what's wrong and 
+> how to correct it.
+> (a) std::cin >> int input_value;
+> (b) int i = { 3.14 };
+> (c) double salary = wage = 9999.99;
+> (d) int i = 3.14;
+
+(a) It is illegal, 
+```cpp
+int input_value;
+std::cin >> input_value;
+```
+(b) If you compile this code without argument -std=c++11, you will get warning information.
+However, if you compile this code with -std=c++11, you will get error information.
+(c) It is illegal,
+```cpp
+double salary = 9999.99;
+double wage = salary;
+```
+(d) It is legal, but the value will be truncated.
+
+## ex2.10
+> What are the initial values, if any, of each of the following wariables?
+```cpp
+std::string global_str;
+int global_int;
+int main(){
+  int local_int;
+  std::string local_str;
+}
+```
+
+Variables defined outside any function body are initialized to zero, in this case, 
+global_str should be empty, global_int = 0. Variables of built-in type defined inside
+a function are uninitialized, in this case, the value of an uninitialized variable  of 
+built-in type is undefined.
+
+## ex2.11
+> Explain whether each of the following is a declaration or a definition:
+> (a) extern int ix = 1024;
+> (b) int iy;
+> (c) extern int iz;
+
+(a) Any declaration that includes an explicit initializer is a definition. In this case,
+this is definition;
+(b) It is definition;
+(c) It is declaration.
+
+## ex2.12
+> Which, if any, of the following names are invalid?
+> (a) int double = 3.14; (b) int _;
+> (c) int catch-22; (d) int 1_or_2 = 1;
+> (e) double Double = 3.14;
+
+(a),(c),(d) are invalid.
+
+## ex2.13
+> What is the value of j in the following program?
+```cpp
+int i = 42;
+int main(){
+  int i = 100;
+  int j = i;
+}
+```
+j = 100
+
+## ex2.14
+> Is the following program legal? If so, what values are printed?
+```cpp
+int i = 100, sum = 0;
+for(int i = 0; i != 10; ++i)
+  sum += i;
+std::cout << i << " " << sum << std::endl;
+```
+
+The program is legal, the result should be 
+100 45
+
+## ex2.15
+> Which of the following definitions, if any, are invalid? Why?
+> (a) int ival = 1.01;    (b) int &rval1 = 1.01;
+> (c) int &val2 = ival;   (d) int &rval3;
+
+(b) is invalid, because initializer is float-point value, while reference bound to int.
+(d) is invalid, because reference must be initialized.
+
+## ex2.16
+> Which, if any, of the following assignments are invalid? If they are valid, explain what they 
+> do.
+> int i = 0, &r1 = i; double d = 0, &r2 = d;
+> (a) r2 = 3.14159; (b) r2 = r1;
+> (c) i = r2;       (d) r1 = d;
+
+(a) is valid, let d = 3.14159
+(b) is valid, let d = i;
+(c) is valid, let i = d;
+(d) is valid, let i = d;
+
+## ex2.17
+> What does the following code print?
+> int i, &ri = i;
+> i = 5, ri = 10;
+> std::cout << i << " " << ri << std::endl;
+
+10 10

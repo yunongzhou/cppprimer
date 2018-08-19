@@ -1,6 +1,9 @@
 #include<iostream>
 
 int main(){
-  std::cout << "Who goes with F\145rgus\012";
+  int i = 0, &r1 = i; 
+  double d = 0, &r2 = d;
+ 
+  r1 = d; 
   return 0;
 } // main
