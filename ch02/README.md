@@ -186,3 +186,38 @@ The program is legal, the result should be
 > std::cout << i << " " << ri << std::endl;
 
 10 10
+
+## ex2.18
+> Write code to change the value of a pointer. Write code to change the value to which the 
+> pointer points.
+```cpp
+#include<iostream>
+
+int main(){
+  int val1 = 1.0, val2 = 2.0;
+  int *pval = &val1;
+  pval = &val2; // change the value of pointer
+  *pval = val2; // change the value to which the pointer points
+  return 0;
+} // main
+```
+
+## ex2.19
+> Explain the key differences between pointers and references.
+
+* A pointer is an object, it holds the address of another object. However, a reference is not 
+a object;
+* Reference must be initialized, while pointer doesn't have to.
+
+## ex2.20
+> What does the following program do?
+```cpp
+int i = 42;
+int *p1 = &i;
+*p1 = *p1 * *p1;
+```
+
+1. define integer i equals to 42;
+2. p1 is a pointer to int, it points to the address of i;
+3. the object that p1 points, which is i, equals to i*i;
+
