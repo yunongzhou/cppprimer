@@ -219,5 +219,5 @@ int *p1 = &i;
 
 1. define integer i equals to 42;
 2. p1 is a pointer to int, it points to the address of i;
-3. the object that p1 points, which is i, equals to i*i;
+3. the object that p1 points to, which is i, equals to i*i;
 
