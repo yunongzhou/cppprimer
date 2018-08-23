@@ -221,3 +221,120 @@ int *p1 = &i;
 2. p1 is a pointer to int, it points to the address of i;
 3. the object that p1 points to, which is i, equals to i*i;
 
+## ex2.21
+> Explain each of the following definitions. Indicate whether any are illegal and if so, why?
+> int i = 0;
+> (a) double *dp = &i; (b) int *ip = i; (c) int *p = &i;
+
+(a) is illegal, because dp is a pointer to int, while i is integer;
+(b) is illegal, it is not allowed to assign an integer to pointer;
+(c) is legal;
+
+## ex2.22
+Assuming p is a pointer to int, explain the following code:
+```cpp
+if(p) // ...
+if(*p) //...
+```
+If p is null pointer, the condition will be false, if p is not null, the condition will be 
+true;
+*p is the object that p points to, if *p = 0, the condition in 
+the second if statement is false, if *p != 0, the condition in the second if statement 
+will be true.
+
+## ex2.23
+> Given a pointer, can you determine whether p points to a valid object? If so, how? If not, 
+> why?
+Obviously, no, we need more information, such as the type of pointer and type of the object
+the pointer points to.
+
+## ex2.24
+> Why is the initialization of p legal but that of lp illegal?
+> int i = 42; void *p = &i; long *lp = &i;
+Because p is a special pointer that can hold the address of any object; lp is a pointer 
+points to long, however, i is integer, in this case, the initialization is illegal.
+
+## ex2.25
+> Determine the types and values of each of the following variables.
+> (a) int* ip, i, &r = i; (b) int i, *ip = 0; (c) int* ip, ip2;
+
+(a) ip is pointer points to integer, i is integer, r is reference bound to i.
+(b) i is integer, ip is null pointer;
+(c) ip is pointer to integer, ip2 is integer.
+
+## ex2.26
+> Which of the following are legal? For those that are illegal, explain why.
+> (a) const int buf; (b) int cnt = 0;
+> (c) cosnt int sz = cnt; (d) ++cnt; ++sz;
+
+(a) if illegal, because const must be initialized.
+(b) is legal;
+(c) is legal if cnt is defined and initialized;
+(d) ++cnt is legal, ++sz is illegal.
+
+## ex2.27
+> Which of the following initializations are legal? Explain why.
+> (a) int i = -1, &r = 0;
+> (b) int *const p2 = &i2;
+> (c) const int i = -1, &r = 0;
+> (d) const int *const p3 = &i2;
+> (e) const int *p1 = &i2;
+> (f) const int &const r2;
+> (g) const int i2 = i, &r = i;
+(a) illegal, because r must be bound to an object;
+
+(b) legal;
+
+(c) legal;
+
+(d) legal;
+
+(e) legal;
+
+(f) illegal, because r2 must be initialized, on the other hand, r2 is reference, 
+which is not an object, in this case, it cannot be a constant;
+
+(g) legal;
+
+## ex2.28
+> Explain the following definitions. Identify any that are illegal.
+> (a) int i, *const cp;
+> (b) int *p1, *const p2;
+> (c) const int ic, &r = ic;
+> (d) const int *const p3;
+> (e) const int *p;
+(a) define i is an integer, cp is constant pointer, which points to integer, this 
+is illegal, because cp must be initialized;
+
+(b) p1 is a pointer, points to integer, p2 is constant pointer which points to 
+integer, this definition is illegal, because p2 must be initialized;
+
+(c) ic is a constant integer, r is constant reference which is bound to constant
+ic, this is illegal, because ic must be initialized.
+
+(d) p3 is constant pointer, which points to constant integer, this definition is 
+illegal, because p3 must be initialized;
+
+(e) p is a pointer which points to constant integer;
+
+## ex2.29
+> Using the variables in the previous exercise, which of the following assignments
+> are legal? Explain why.
+> (a) i = ic;
+> (b) p1 = p3;
+> (c) p1 = &ic;
+> (d) p3 = &ic;
+> (e) p2 = p1;
+> (f) ic = *p3;
+(a) legal;
+
+(b) illegal, p3 is const pointer points to const integer, p1 is pointer points to integer;
+
+(c) illegal, p1 is pointer, while ic is const integer;
+
+(d) illegal, p3 is const pointer, it cannot be changed;
+
+(e) illegal, p2 is constant pointer, it cannot be changed;
+
+(f) illegal, ic is constant integer, it cannot be changed;
+
