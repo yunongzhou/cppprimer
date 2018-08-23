@@ -245,12 +245,14 @@ will be true.
 ## ex2.23
 > Given a pointer, can you determine whether p points to a valid object? If so, how? If not, 
 > why?
+
 Obviously, no, we need more information, such as the type of pointer and type of the object
 the pointer points to.
 
 ## ex2.24
 > Why is the initialization of p legal but that of lp illegal?
 > int i = 42; void *p = &i; long *lp = &i;
+
 Because p is a special pointer that can hold the address of any object; lp is a pointer 
 points to long, however, i is integer, in this case, the initialization is illegal.
 
@@ -281,6 +283,7 @@ points to long, however, i is integer, in this case, the initialization is illeg
 > (e) const int *p1 = &i2;
 > (f) const int &const r2;
 > (g) const int i2 = i, &r = i;
+
 (a) illegal, because r must be bound to an object;
 
 (b) legal;
@@ -303,6 +306,7 @@ which is not an object, in this case, it cannot be a constant;
 > (c) const int ic, &r = ic;
 > (d) const int *const p3;
 > (e) const int *p;
+
 (a) define i is an integer, cp is constant pointer, which points to integer, this 
 is illegal, because cp must be initialized;
 
@@ -326,6 +330,7 @@ illegal, because p3 must be initialized;
 > (d) p3 = &ic;
 > (e) p2 = p1;
 > (f) ic = *p3;
+
 (a) legal;
 
 (b) illegal, p3 is const pointer points to const integer, p1 is pointer points to integer;
