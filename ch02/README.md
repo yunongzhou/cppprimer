@@ -343,3 +343,44 @@ illegal, because p3 must be initialized;
 
 (f) illegal, ic is constant integer, it cannot be changed;
 
+## ex2.30
+> For each of the following declarations indicate whether the object being declared has 
+> top-level or low-level const.
+> const int v2 = 0; int v1 = v2;
+> int *p1 = &v1, &r1 = v1;
+> const int *p2 = &v2, *const p3 = &i, &r2 = v2;
+
+top-level, low-level, top-level
+
+## ex2.31
+> Given the declarations in the previous exercise determine whether the 
+> following assignments are legal. Explain how the top-level or low-level 
+> const applies in each case.
+> r1 = v2;
+> p1 = p2;
+> p2 = p1;
+> p1 = p3;
+> p2 = p3;
+
+r1 = v2 is legal;
+
+p1 = p2 is illegal, because p1 is pointer, while p2 is pointer to constant;
+
+p2 = p1 is legal, because we can convert int* to const int*;
+
+p1 = p3 is illegal, because p3 has low-level const, while p1 is plain pointer;
+
+p2 = p3 is legal;
+
+## ex2.32
+> Is the following code legal or not? If not, how might you make it legal?
+> int null = 0, *p = null;
+
+It is illegal
+```cpp
+int null = 0, *p = nullptr;
+```
+or
+```cpp
+int null = 0, *p = &null;
+```
