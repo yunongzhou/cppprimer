@@ -473,3 +473,27 @@ int main(){
   return 0;
 } // main
 ```
+
+## ex2.39
+> Compile the following program to see what happens when you forget the semicolon after a 
+> class definition. Remember the message for future reference.
+```cpp
+struct Foo{/* empty */} // Note: no semicolon
+int main(){
+  return 0;
+} 
+```
+
+error: expected ';' after struct
+
+## ex2.40
+> Write your own version of the Sales_data class.
+```cpp
+struct Sales_data{
+  std::string bookNo;
+  unsigned units_sold = 0;
+  double revenue = 0.0;
+};
+```
+
+
