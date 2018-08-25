@@ -414,3 +414,62 @@ const auto j2 = i, &k2 = i;
 ```
 
 j is `int`, k is `const int&`, p is `int*`, j2 is `const int`, k2 is `const int&`;
+
+## ex2.36
+> In the following code, determine the type of each variable and the value each variable
+> has when the code finishes:
+```cpp
+int a = 3, b = 4;
+decltype(a) c = a;
+decltype((b)) d = a;
+++c;
+++d;
+```
+a is `int`, b is `int`, c is `int`, d is `int&`, after code finish,
+a = 4, b = 4, c = 4, d = 4.
+
+## ex2.37
+> Assignment is an example of an expression that yields a reference type. The type is a
+> reference to the type of the left-hand operand. That is, if i is an int, then the type
+> of the expression i = x is int&. Using that knowledge, determine the type and value of
+> each variable in this code:
+```cpp
+int a = 3, b = 4;
+decltype(a) c = a;
+decltype(a = b) d = a;
+```
+a is `int`, a = 3;
+
+b is `int`, b = 4;
+
+c is `int`, c = 3;
+
+d is `int&`, d = 3;
+
+## ex2.38
+> Describe the differences in type deduction between decltype and auto. Give an example
+> of an expression where auto and decltype will deduce the same type and an example where
+> they will deduce differing types.
+
+When the expression to which we apply `decltype` is a variable, `decltype` returns the 
+type of that variable, including top-level `const` and reference. However, when `auto` 
+ignores the top-level `const`. Another important difference between `decltype` and `auto`
+is that the deduction done by `decltype` depends on the form of its given expression.
+```cpp
+#include<iostream>
+int main(){
+  int a = 3, b = 4;
+  const int c = 3;
+  const int d = 4;
+
+  // the same type
+  auto e = a; // e is int
+  decltype(a) f = a; //f is int
+
+  // different type
+  auto g = c; // g is int
+  decltype(d) h = d; // h is const int
+  
+  return 0;
+} // main
+```
