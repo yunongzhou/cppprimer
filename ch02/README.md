@@ -384,3 +384,33 @@ or
 ```cpp
 int null = 0, *p = &null;
 ```
+
+## ex2.33
+> Using the variable definitions from this section, determine what happens in each 
+> of these assignments:
+> a = 42; b = 42; c = 42;
+>
+> d = 42; e = 42; g = 42;
+
+a is an int, in this case, this assignment is to assign 42 to a;
+
+b is an int, in this case, this assignment is to assign 42 to b;
+
+c is an int, did the samething as b;
+
+d is a pointer to integer, in this case, the assignment is error;
+
+e is a pointer to const int, the assignment is error;
+
+g is const int reference that bound to ci, in this case, the assignment is error;
+
+## ex2.35
+> Determine the types deduced in each of the following definitions. Once you've found
+> out the types, write a program to see whether you were correct.
+```cpp
+const int i = 42;
+auto j = i; const auto &k = i; auto *p = &i;
+const auto j2 = i, &k2 = i;
+```
+
+j is `int`, k is `const int&`, p is `int*`, j2 is `const int`, k2 is `const int&`;
