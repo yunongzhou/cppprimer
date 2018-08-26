@@ -9,3 +9,5 @@
 -[Chapter 1. Getting Started](ch01/README.md)
 
 -[Chapter 2. Variables and Basic Types](ch02/README.md)
+
+-[Chapter 3. Strings, Vectors and Arrays](ch03/README.md)
