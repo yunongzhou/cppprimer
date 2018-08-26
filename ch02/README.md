@@ -495,5 +495,3 @@ struct Sales_data{
   double revenue = 0.0;
 };
 ```
-
-
