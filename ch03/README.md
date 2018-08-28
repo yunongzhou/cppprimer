@@ -1,8 +1,9 @@
 ## ex3.02
 > Write a program to read the standard input a line at a time. Modify your program
 > to read a word a time.
-[part1](ch03/ex3_02_1.cpp)
-[part2](ch03/ex3_02_2.cpp)
+
+-[part1](ch03/ex3_02_1.cpp)
+-[part2](ch03/ex3_02_2.cpp)
 
 ## ex3.03
 > Explain how whitespace characters are handled in the string input operator and 
