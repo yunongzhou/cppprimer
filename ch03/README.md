@@ -23,3 +23,11 @@ reading and returns.
 > If not, report which of the two is larger. Now change the program to report 
 > whether the strings have the same length, and if not, report which is longer.
 
+[part1](ex3_04_1.cpp)
+
+[part2](ex3_04_2.cpp)
+
+## ex3.05
+> Write a program to read strings from the standard input, concatenating what is 
+> read into one large string. Print the concatenated string. Next, change the program
+> to separate adjacent input strings by space.
