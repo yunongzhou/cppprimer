@@ -85,3 +85,23 @@ for(auto &c:s){/* ... */}
 ```
 
 It is allowed to read the string, but not allowed to modify the string.
+
+## ex3.12
+> Which, if any, of the following vector definitions are in error? For those
+> that are legal, explain what the definition does. For those that are not 
+> legal, explain why they are illegal.
+> (a) vector<vector<int>> ivec;
+> (b) vector<string> svec = ivec;
+> (c) vector<string> svec(10, "null");
+
+(a) Some compilers may require the old style declaration, `vector<vector<int> > ivec;`;
+
+(b) It is illegal, because ivec is `int`, but svec is `string`;
+
+(c) It is legal, svec has 10 strings, each string is "null".
+
+## ex3.13
+> How many elements are there in each of the following vectors? What are the values 
+> of the elements?
+> (a) vector<int> v1;
+> (b) 
