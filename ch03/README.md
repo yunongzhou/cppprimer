@@ -115,7 +115,7 @@ It is allowed to read the string, but not allowed to modify the string.
 >
 > (g) vector<string> v7{10, "hi"};
 
-(a) 1 element in this vector, v1 = 0;
+(a) 0 element in this vector;
 
 (b) 10 elements in this vector, each of them is 0;
 
