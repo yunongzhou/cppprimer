@@ -90,8 +90,11 @@ It is allowed to read the string, but not allowed to modify the string.
 > Which, if any, of the following vector definitions are in error? For those
 > that are legal, explain what the definition does. For those that are not 
 > legal, explain why they are illegal.
+>
 > (a) vector<vector<int>> ivec;
+>
 > (b) vector<string> svec = ivec;
+>
 > (c) vector<string> svec(10, "null");
 
 (a) Some compilers may require the old style declaration, `vector<vector<int> > ivec;`;
@@ -103,5 +106,25 @@ It is allowed to read the string, but not allowed to modify the string.
 ## ex3.13
 > How many elements are there in each of the following vectors? What are the values 
 > of the elements?
-> (a) vector<int> v1;
-> (b) 
+>
+> (a) vector<int> v1; (b) vector<int> v2(10);
+>
+> (c) vector<int> v3(10, 42); (d) vector<int> v4{10};
+>
+> (e) vector<int> v5{10, 42}; (f) vector<string> v6{10};
+>
+> (g) vector<string> v7{10, "hi"};
+
+(a) 1 element in this vector, v1 = 0;
+
+(b) 10 elements in this vector, each of them is 0;
+
+(c) 10 elements in this vector, each of them is 42;
+
+(d) 1 element in this vector, the value is 10;
+
+(e) 2 elements in this vector, v5[0] = 10, v5[1] = 42;
+
+(f) 10 elements in this vector, each of them is default-initialized elements;
+
+(g) 10 elements in this vector, each of them is string "hi".
