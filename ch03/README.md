@@ -128,3 +128,45 @@ It is allowed to read the string, but not allowed to modify the string.
 (f) 10 elements in this vector, each of them is default-initialized elements;
 
 (g) 10 elements in this vector, each of them is string "hi".
+
+## ex3.14
+> Write a program to read a sequence of ints from cin and store those values in a vector.
+
+[code](ex3_14.cpp)
+
+## ex3.15
+> Repeat the previous program but read strings this time.
+
+[code](ex3_15.cpp)
+
+## ex3.16
+> Write a program to print the size and contents of the vectors from exercise 3.13. Check
+> whether your answers to that exercise were correct. If not, restudy until you understand
+> why you were wrong.
+
+[code](ex3_16.cpp)
+
+## ex3.17
+> Read a sequence of words from `cin` and store the values a `vector`. After you've read all
+> the words, process the `vector` and change each word to uppercase. Print the transformed 
+> elements, eight words to a line.
+
+[code](ex3_17.cpp)
+
+## ex3.18
+> Is the following program legal? If not, how might you fix it?
+```cpp
+vector<int> ivec;
+ivec[0] = 42;
+```
+
+It is illegal
+```cpp
+vector<int> ivec;
+ivec.push_back(42);
+```
+
+## ex3.19
+> List three ways to define a `vector` and give it ten elements, each with the value of 42.
+> Indicate whether there is a prefered way to do so and why.
+
