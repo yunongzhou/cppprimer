@@ -170,3 +170,87 @@ ivec.push_back(42);
 > List three ways to define a `vector` and give it ten elements, each with the value of 42.
 > Indicate whether there is a prefered way to do so and why.
 
+[code](ex3_19.cpp)
+
+I prefer the second way because it is elegant.
+
+## ex3.20
+> Read a set of integers into a `vector`. Print the sum of each pair of adjacent elements. 
+> Change your program so that it prints the sum of the first and last elements, followed
+> by the sum of the second and second-to-last, and so on.
+
+[part1](ex3_20_1.cpp)
+
+[part2](ex3_20_2.cpp)
+
+## ex3.21
+> Redo the first exercise from 3.3.3(p.105) using iterators.
+
+[code](ex3_21.cpp)
+
+## ex3.22
+> Revise the loop that printed the first paragraph in text to instead change the elements in 
+> text that correspond to the first paragraph to all uppercase. After you've updated text, 
+> print its contents.
+
+[code](ex3_22.cpp)
+
+## ex3.23
+> Write a program to create a `vector` with ten `int`elements. Using an iterator, assign each
+> element a value that is twice its current value. Test your program by printing the vector.
+
+[code](ex3_23.cpp)
+
+## ex3.24
+> Redo the last exercise from 3.3.3(p.105) using iterators.
+
+[part1](ex3_24_1.cpp)
+
+[part2](ex3_24_2.cpp)
+
+## ex3.25
+> Rewrite the grade clustering program from 3.3.3(p.104) using iterators instead of subscripts.
+
+[code](ex3_25.cpp)
+
+## ex3.26
+> In the binary search program on page 112, why did we write `mid = beg + (end - beg)/2;`, 
+> instead of `mid = (beg + end) / 2;`?
+
+Because iterator doesn't define the `+` operator between two vectors.
+
+## ex3.27
+> Assuming `txt_size` is a function that takes no arguments and returns an `int` value, which
+> of the following definitions are illegal? Explain why.
+> unsigned buf_size = 1024;
+> (a) int ia[buf_size];     (b) int ia[4*7-14];
+> (c) int ia[txt_size()];   (d) char st[11] = "fundamental";
+
+(a) it is illegal, because buf_size is not `const`;
+
+(b) it is legal;
+
+(c) it is illegal, because txt_size() returns `int`, not `const int`;
+
+(d) it is illegal, because string literal ends with a null character.
+
+## ex3.28
+> What are the values in the following arrays?
+```cpp
+string sa[10];
+int ia[10];
+int main(){
+  string sa2[10];
+  int ia2[10];
+} // main
+```
+
+Variables defined outside any function body are initialized to zero, hence, the values of ia 
+are 0, the values of ia2 are undefined. The values of sa and sa2 are empty, because string is 
+not build-in type.
+
+## ex3.29
+> List some drawbacks of using an array instead of a vector.
+
+1. The dimension of array must be known at compile time;
+2. The dimension of array is fixed, therefore, you cannot add element to an array;
