@@ -254,3 +254,84 @@ not build-in type.
 
 1. The dimension of array must be known at compile time;
 2. The dimension of array is fixed, therefore, you cannot add element to an array;
+
+## ex3.30
+> Identify the indexing errors in the following code:
+
+```cpp
+constexpr size_t array_size = 10;
+int ia[array_size];
+for(size_t ix = 1; ix <= array_size; ++ix)
+  ia[ix] = ix;
+```
+
+ix should starts from 0.
+
+## ex3.31
+> Write a program to define an array of ten ints. Given each element the same value as its 
+> postion in the array.
+
+[code](ex3_31.cpp)
+
+## ex3.32
+> Copy the array you defined in the previous exercise into another array. Rewrite your program
+> to use `vector`.
+
+[part1](ex3_32_1.cpp)
+
+[part2](ex3_32_2.cpp)
+
+## ex3.33
+> What would happen if we did not initialize the scores array in the program on page 116?
+
+The array is undefined because the definition is in function.
+
+## ex3.34
+> Given that p1 and p2 point to elements in the same array, what does the following code do?
+> Are there values of p1 or p2 that make this code illegal?
+```cpp
+p1 += p2 - p1;
+```
+
+the same as `p1 = p2;`
+
+## ex3.35
+> Using pointers, write a program to set the elements in an array to zero.
+
+[code](ex3_35.cpp)
+
+## ex3.36
+> Write a program to compare two arrays for equality. Write a similar program to compare two 
+> vectors.
+
+[part1](ex3_36_1.cpp)
+
+[part2](ex3_36_2.cpp)
+
+## ex3.37
+> What does the following program do?
+
+```cpp
+const char ca[] = {'h', 'e', 'l', 'l', 'o'};
+const char *cp = ca;
+while(*cp){
+  cout << *cp << endl;
+  ++cp;
+}
+```
+
+output all the elements of array ca.
+
+## ex3.38
+> In this section, we noted that it was not only illegal but meaningless to try to add two 
+> pointers. Why would adding two pointers be meaningless?
+
+There is no explanation for adding two pointers in C++.
+
+## ex3.39
+> Write a program to compare two strings. Now write a program to compare the values of two
+> C-style character strings.
+
+[part1](ex3_39_1.cpp)
+
+[part2](ex3_39_2.cpp)
