@@ -335,3 +335,28 @@ There is no explanation for adding two pointers in C++.
 [part1](ex3_39_1.cpp)
 
 [part2](ex3_39_2.cpp)
+
+## ex3.40
+> Write a program to define two character arrays initialized from string literals. Now define a 
+> third character array to hold the concatenation of the two arrays. Use `strcpy` and `strcat` to 
+> copy the two arrays into the third.
+
+[code](ex3_40.cpp)
+
+## ex3.41
+> Write a program to initialize a `vector` from an array of `int`.
+
+[code](ex3_41.cpp)
+
+## ex3.42
+> Write a program to copy a `vector` of `ints` into an array of `ints`.
+
+[code](ex3_42.cpp)
+
+## ex3.43
+> Write three different versions of a program to print the elements of ia. One version should use
+> a range for to manage the iteration, the other two should use an ordinary for loop in one case
+> using subscripts and in the other using pointers. In all three programs write all the types 
+> directly. That is, do not use a type alias, auto, or decltype to simplify the code.
+
+[code](ex3_43.cpp)
