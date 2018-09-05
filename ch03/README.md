@@ -360,3 +360,14 @@ There is no explanation for adding two pointers in C++.
 > directly. That is, do not use a type alias, auto, or decltype to simplify the code.
 
 [code](ex3_43.cpp)
+
+## ex3.44
+> Rewrite the programs from the previous exercises using a type alias for the type of the loop
+> control variables.
+
+[code](ex3_44.cpp)
+
+## ex3.45
+> Rewrite the programs again, this time using auto.
+
+[code](ex3_45.cpp)

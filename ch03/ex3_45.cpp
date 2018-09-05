@@ -7,15 +7,15 @@ using std::endl;
 using std::vector;
 
 int main(){
-  int ia[3][4] = {
+  int ia[][4] = {
     {0,1,2,3},
     {4,5,6,7},
     {8,9,10,11}
   };
 
   // use range for
-  for(int (&subArr)[4] : ia){
-    for(int num : subArr)
+  for(auto &subArr : ia){
+    for(auto num : subArr)
       cout << num << " ";
     cout << endl;
   }
@@ -31,8 +31,8 @@ int main(){
   cout << endl;
 
   // use for loop iterator
-  for(int(*row)[4] = ia; row != ia+3; ++row){
-    for(int *col = *row; col != row+4; ++col){
+  for(auto row = ia; row != ia + 3; ++i){
+    for(auto col = *row; col != *row+4; ++col){
       cout << *col << " ";
     }
     cout << endl;
