@@ -11,3 +11,5 @@
 -[Chapter 2. Variables and Basic Types](ch02/README.md)
 
 -[Chapter 3. Strings, Vectors and Arrays](ch03/README.md)
+
+-[Chapter 4. Expressions](ch04/README.md)
