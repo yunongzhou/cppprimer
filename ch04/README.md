@@ -79,4 +79,76 @@ c += 1;
 ```
 
 ## ex4.08
+> Explain when operands are evaluated in the logical AND, logical OR and equality 
+> operators.
 
+The logical AND and OR always evaluate their left operand before the right.
+
+## ex4.09
+> Explain the behavior of the condition in the following if:
+```cpp
+const char *cp = "Hello World";
+if(cp && *cp)
+```
+
+true, because both cp and *cp are nonzero.
+
+## ex4.10
+> Write the condition for a while loop that would read ints from the standard input 
+> and stop when the value read is equal to 42.
+```cpp
+int i = 0;
+while(cin >> num && num != 42){
+}
+```
+
+## ex4.11
+> Write an expression that tests four values a, b, c, and d, and ensures that a is greater
+> than b, which is greater than c, which is greater than d.
+
+```cpp
+(a > b) && (b > c) && (c > d)
+```
+
+## ex4.12
+> Assuming i, j and k are all ints, explain what i != j < k means.
+
+First evaluate the result of `i != j`, if it is true, then evaluate `1 < k`, if it is 
+false, then evaluate `0 < k`.
+
+## ex4.13
+> What are the values of i and d after each assignment?
+>
+> int i; double d;
+>
+> (a) d = i = 3.5;
+>
+> (b) i = d = 3.5;
+
+(a) i = 3, d = 3;
+
+(b) d = 3.5, i = 3;
+
+## ex4.14
+> Explain what happens in each of the if tests:
+> if (42 = i) // ...
+> if (i = 42) // ...
+
+The first if statement is not able to compile;
+
+The second `if` statement is always true.
+
+## ex4.15
+> The following assignment is illegal. Why? How would you correct it?
+```cpp
+double dval; int ival; int *pi;
+dval = ival = pi = 0;
+```
+
+Because we cannot convert pointer to int to int or double. The corrected assignment should be
+```cpp
+double dval; int ival; int *pi;
+
+*pi = 0;
+ival = dval = 0;
+```
