@@ -152,3 +152,90 @@ double dval; int ival; int *pi;
 *pi = 0;
 ival = dval = 0;
 ```
+
+## ex4.16
+> Although the following are legal, they probably do not behave as the programmer expects.
+> Why? Rewrite the expressions as you think they should be.
+>
+> (a) if (p = getPtr() != 0)
+>
+> (b) if (i = 1024)
+
+(a) the if statement is always true, 
+```cpp
+if((p = getPtr()) != 0)
+```
+
+(b) it is always true,
+```cpp
+if (i == 1024)
+```
+
+## ex4.17
+> Explain the difference between prefix and postfix increment.
+
+Prefix form increments its operand and yields the changed object as its result. The postfix
+operator increments the operand but yields a copy of the original, unchanged value as its 
+result.
+
+## ex4.18
+> What would happen if the while loop on page 148 that prints the elements from a vector
+> used the prefix increment operator?
+
+It will skip the first element and dereference v.end() at last.
+
+## ex4.19
+> Given that ptr points to an int, that vec is a vector<int>, and that ival is an int, explain
+> the behavior of each of these expressions. Which, if any, are likely to be incorrect?
+> Why? How might each be corrected?
+>
+> (a) ptr != 0 && *ptr++
+>
+> (b) ival++ && ival
+>
+> (c) vec[ival++] <= vec[ival]
+
+(a) check ptr is a nullptr or not, then check the pointer value.
+
+(b) check ival is zero or not, then check (ival+1) is zero or not.
+
+(c) incorrect, because both the left-hand operand and right-hand operand to use ival and 
+the left-hand operand changes ival. This expression is undefined behavior.
+```cpp
+vec[ival] <= vec[ival+1];
+```
+
+## ex4.20
+> Assuming that iter is a vector<string>::iterator, indicate which, if any, of the following
+> expressions are legal. Explain the behavior of the legal expressions and why those that 
+> aren't legal are in error.
+>
+> (a) *iter++;
+>
+> (b) (*iter)++;
+>
+> (c) *iter.empty()
+>
+> (d) iter->empty();
+>
+> (e) ++*iter;
+>
+> (f) iter++->empty();
+
+(a) it is equivalent to *(iter++), and it will dereference *iter and then increment iter;
+
+(b) it is illegal, because *iter is string, it cannot increment.
+
+(c) it is illegal, because iter has no empty member function.
+
+(d) evaluate the *iter is empty or not.
+
+(e) illegal, because string cannot increment.
+
+(f) evaluate *iter is empty or not, then increment iter.
+
+## ex4.21
+> Write a program to use a conditional operator to find the elements in a vector<int> 
+> that have odd value and double the value of each such element.
+
+[code](ex4_21.cpp)
