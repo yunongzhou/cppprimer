@@ -239,3 +239,48 @@ vec[ival] <= vec[ival+1];
 > that have odd value and double the value of each such element.
 
 [code](ex4_21.cpp)
+
+## ex4.22
+> Extend the program that assigned high pass, pass, and fail grades to also assign low 
+> pass for grades between 60 and 75 inclusive. Write two versions: One version that uses
+> only conditional operators; the other should use one or more if statements. Which version
+> do you think is easier to understand and why?
+
+[part1](ex4_22_1.cpp)
+
+[part2](ex4_22_2.cpp)
+
+I prefer the second version because the logic is clear, hence it is much easier to understand.
+
+# ex4.23
+> The following expression fails to compile due to operator precedence. Using 4.12(p.166),
+> explain why it fails. How would you fix it?
+```cpp
+string s = "word";
+string p1 = s + s[s.size() - 1] == 's' ? "" : "s";
+```
+
+s + s[s.size() - 1] is string, but 's' is char, the corrected expression should be
+```cpp
+string s = "word";
+string p1 = s + (s[s.size() - 1] == 's' ? "" : "s");
+```
+
+## ex4.24
+> Our program that distinguished between high pass, pass, and fail depended on the fact 
+> that the conditional operator is right associative. Describe how that operator would be
+> evaluated if the operator were left associative.
+
+The program is listed as below,
+```cpp
+finalgrade = (grade > 90) ? "high pass" : (grade < 60) ? "fail" : "pass";
+```
+if the operator were left associative, the program would be equivalent as 
+```cpp
+finalgrade = ((grade > 90) ? "high pass" : (grade < 60)) ? "fail" : "pass";
+```
+if grade > 90, the first conditional operation results in high pass, hence the finalgrade
+is fail.
+
+## ex4.25
+
