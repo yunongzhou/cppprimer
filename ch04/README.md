@@ -385,3 +385,80 @@ whether ptr points to the last element of ia, if not, increment ix and ptr.
 ```
 If someValue is true, then increment x the result is ~~++y~~ y, if false, then --x, the result 
 is --y.
+
+## ex4.34
+> Given the variable definitions in this section, explain what conversions take place 
+> in the following expressions:
+>
+> (a) if(fval)
+>
+> (b) dval = fval + ival;
+>
+> (c) dval + ival * cval;
+
+(a) fval will convert from float to bool
+
+(b) ival will convert to float, then the result of fval + ival will convert to double;
+
+(c) cval will convert to integer, then the result of ival * cval will convert to double.
+
+## ex4.35
+> Given the following definitions,
+>
+> char cval; int ival; unsigned int ui;
+>
+> float fval; double dval;
+>
+> identify the implicit type conversions, if any, taking place:
+>
+> (a) cval = 'a' + 3;
+>
+> (b) fval = ui - ival * 1.0;
+>
+> (c) dval = ui * fval;
+>
+> (d) cval = ival + fval + dval;
+
+(a) 'a' converted to int, then the result of 'a' + 3 converted to char;
+
+(b) ival converted to double, ui converted to double, then the result of ui - ival * 1.0 
+converted to float;
+
+(c) ival converted to float, the result of ival + fval converted to double, then the 
+result of ival + fval + dval converted to char.
+
+## ex4.36
+> Assuming i is an int and d is a double write the expression i *= d so that it does
+> integral, rather than floating-point, multiplication.
+```cpp
+i *= static_cast<int> (d);
+```
+
+## ex4.37
+> Rewrite each of the following old-style casts to use a named cast:
+>
+> int i; double d; const string *ps; char *pc; void *pv;
+>
+> (a) pv = (void*) ps;
+>
+> (b) i = int(*pc);
+>
+> (c) pv = &d;
+>
+> (d) pc = (char*) pv;
+
+(a) pv = const_cast<string*>(ps);
+
+(b) i = static_cast<int>(*pc);
+
+(c) pv = static_cast<void*>(&d);
+
+(d) ~~pc = static_cast<char*>(pv);~~ pc = reinterpret_cast<char*>(pv);
+
+## ex4.38
+> Explain the following expression:
+>
+> double slope = static_cast<double>(j/i);
+
+compute j / i, the result should be integer, then convert the integer to double and 
+assign to slope.
