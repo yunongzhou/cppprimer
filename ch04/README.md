@@ -345,13 +345,43 @@ sizeof(p) = 8, sizeof(*p) is 4, the output should be 2.
 > (c) sizeof a < b
 >
 > (d) sizeof f()
+```cpp
+(sizeof x) + y
 
-(a) (sizeof x) + y
+sizeof(p -> mem[i])
 
-(b) sizeof(p -> mem[i])
+((sizeof a) < b)
 
-(c) ((sizeof a) < b)
-
-(d) sizeof(f())
+sizeof(f())
+```
 
 ## ex4.31 
+> The program in this section used the prefix increment and decrement operators. Explain
+> why we used prefix and not postfix. What changes would have to be made to use the 
+> postfix version? Rewrite the program using postfix operators.
+
+We used prefix and not postfix because prefix avoids unnecessary work. It increments the 
+value and returns the incremented version. However, the postfix must store the original
+value so that it can return the unchanged value and its results.
+
+## ex4.32
+> Explain the following loop.
+```cpp
+constexpr int size = 5;
+int ia[size] = {1,2,3,4,5};
+for(int *ptr = ia, ix = 0;
+    ix != size && ptr != ia + size;
+    ++ix, ++ptr){ /* ... */}
+```
+
+Define a pointer to array, and an integer ix = 0, then evaluate whether ix == size and 
+whether ptr points to the last element of ia, if not, increment ix and ptr.
+
+## ex4.33
+> Using Table 4.12(p.166) explain what the following expression does:
+> someValue ? ++x, ++y : --x, --y
+```cpp
+(someValue ? ++x, ++y : --x), --y
+```
+If someValue is true, then increment x the result is ~~++y~~ y, if false, then --x, the result 
+is --y.
