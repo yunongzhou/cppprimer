@@ -20,9 +20,8 @@ of our program needs more than one.
 This rewrite diminishes the readability of this code.
 
 ## ex5.04
-```cpp
 > Explain each of the following examples, and correct any problem you detect.
->
+```cpp
 > (a) while(string::iterator iter != s.end()){/* ... */}
 >
 > (b) while(bool status = find(word)) {/* ... */}
