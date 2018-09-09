@@ -252,7 +252,7 @@ vec[ival] <= vec[ival+1];
 
 I prefer the second version because the logic is clear, hence it is much easier to understand.
 
-# ex4.23
+## ex4.23
 > The following expression fails to compile due to operator precedence. Using 4.12(p.166),
 > explain why it fails. How would you fix it?
 ```cpp
@@ -283,4 +283,75 @@ if grade > 90, the first conditional operation results in high pass, hence the f
 is fail.
 
 ## ex4.25
+> What is the value of ~'q' << 6 on a machine with 32-bit ints and 8 bit chars, that uses
+> Latin-1 character set in which 'q' has the bit pattern 01110001?
 
+Because `'q'` is 01110001, hence `~'q'` is negative, hence it is undefined behavior.
+
+## ex4.26
+> In our grading example in this section, what would happen if we used unsigned int as the 
+> type for quiz1?
+
+This could cause undefined behavior because we need at least 30 bits for quiz1, while
+unsigned int has only 16 bits.
+
+## ex4.27
+> What is the result of each of these expressions?
+>
+> unsigned long ul1 = 3, ul2 = 7;
+>
+> (a) ul1 & ul2;
+> 
+> (b) ul1 | ul2;
+>
+> (c) ul1 && ul2;
+>
+> (d) ul1 || ul2;
+
+(a) 3
+
+(b) 7
+
+(c) true
+
+(d) true
+
+## ex4.28
+> Write a program to print the size of each of the built-in types.
+
+[code](ex4_28.cpp)
+
+## ex4.29
+> Predict the output of the following code and explain your reason. Now run the program.
+> Is the output what you expected? If not, figure out why.
+```cpp
+int x[10]; int *p = x;
+cout << sizeof(x) / sizeof(*x) << endl;
+cout << sizeof(p) / sizeof(*p) << endl;
+```
+
+sizeof(x) = 40, sizeof(*x) is 4, the output should be 10;
+
+sizeof(p) = 8, sizeof(*p) is 4, the output should be 2.
+
+## ex4.30
+> Using Table 4.12(p.166), parenthesize the following expressions to match the default
+> evaluation:
+>
+> (a) sizeof x + y
+>
+> (b) sizeof p -> mem[i]
+>
+> (c) sizeof a < b
+>
+> (d) sizeof f()
+
+(a) (sizeof x) + y
+
+(b) sizeof(p -> mem[i])
+
+(c) ((sizeof a) < b)
+
+(d) sizeof(f())
+
+## ex4.31 
