@@ -20,6 +20,7 @@ of our program needs more than one.
 This rewrite diminishes the readability of this code.
 
 ## ex5.04
+```cpp
 > Explain each of the following examples, and correct any problem you detect.
 >
 > (a) while(string::iterator iter != s.end()){/* ... */}
@@ -27,7 +28,7 @@ This rewrite diminishes the readability of this code.
 > (b) while(bool status = find(word)) {/* ... */}
 >
 >     if(!status){/* ... */}
-
+```
 (a) Because iter isn't initialized, hence this loop is invalid.
 
 ```cpp
@@ -56,7 +57,7 @@ if(!status){/* ... */}
 
 ## ex5.07
 > Correct the errors in each of the following code fragments:
->
+```cpp
 > (a) if (ival1 != ival2) ival1 = ival2
 >
 >     else ival1 = ival2 = 0;
@@ -70,3 +71,4 @@ if(!status){/* ... */}
 >     if(!ival) cout << "ival = 0\n";
 >
 > (d) if(ival = 0) ival = get_value();
+```
