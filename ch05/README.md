@@ -22,11 +22,11 @@ This rewrite diminishes the readability of this code.
 ## ex5.04
 > Explain each of the following examples, and correct any problem you detect.
 ```cpp
-> (a) while(string::iterator iter != s.end()){/* ... */}
->
-> (b) while(bool status = find(word)) {/* ... */}
->
->     if(!status){/* ... */}
+ (a) while(string::iterator iter != s.end()){/* ... */}
+
+ (b) while(bool status = find(word)) {/* ... */}
+
+     if(!status){/* ... */}
 ```
 (a) Because iter isn't initialized, hence this loop is invalid.
 
@@ -57,17 +57,32 @@ if(!status){/* ... */}
 ## ex5.07
 > Correct the errors in each of the following code fragments:
 ```cpp
-> (a) if (ival1 != ival2) ival1 = ival2
->
->     else ival1 = ival2 = 0;
->
-> (b) if(ival1 < minval) minval = ival;
->
->     occurs = 1;
->
-> (c) if(int ival = get_value()) cout << "ival = " << ival << endl;
->
->     if(!ival) cout << "ival = 0\n";
->
-> (d) if(ival = 0) ival = get_value();
+ (a) if (ival1 != ival2) ival1 = ival2
+
+     else ival1 = ival2 = 0;
+
+ (b) if(ival < minval) minval = ival;
+
+     occurs = 1;
+
+ (c) if(int ival = get_value()) cout << "ival = " << ival << endl;
+
+     if(!ival) cout << "ival = 0\n";
+
+ (d) if(ival = 0) ival = get_value();
 ```
+
+```cpp
+(a) if(ival1 != ival2) ival1 = ival2; // lost semicolon
+    else ival1 = ival2 = 0;
+
+(b) if(ival1 < minval){
+      minval = ival;
+      occurs = 1;
+    } // curly braces lost
+
+(c) int ival = 0; // declare ival outside the if statement
+    if(ival = get_value()) cout << "ival = " << ival << endl;
+
+(d) if(ival == 0) ival = get_value();
+
