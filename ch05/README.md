@@ -85,4 +85,14 @@ if(!status){/* ... */}
     if(ival = get_value()) cout << "ival = " << ival << endl;
 
 (d) if(ival == 0) ival = get_value();
+```
 
+## ex5.08
+> What is a "dangling else"? How are else clauses resolved in C++?
+
+When we nest an if inside another if, it is possible that there will be more if branches 
+than else branches. Sometimes it is confused to find out which if a given else belongs to.
+This problem, usually referred to as a dangling else.
+
+In C++ the ambiguity is resolved by specifying that each else is matched with the closest
+preceding unmatched if.
