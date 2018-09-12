@@ -52,7 +52,6 @@ Refer [ex6.03](ex6_03.cpp)
 ## ex6.05
 > Write a function to return the absolute value of its argument.
 
-[code](ex6_04.cpp)
+[code](ex6_05.cpp)
 
 ## ex6.06
-> 
