@@ -15,3 +15,5 @@
 -[Chapter 4. Expressions](ch04/README.md)
 
 -[Chapter 5. Statements](ch05/README.md)
+
+-[Chapter 6. Functions](ch06/README.md)
