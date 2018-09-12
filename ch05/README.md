@@ -347,3 +347,30 @@ I prefer for loop, because it is always one line.
 > for duplicated words that start with an uppercase letter.
 
 [code](ex5_21.cpp)
+
+## ex5.22
+> The last example in this section that jumped back to begin could be better 
+> written using a loop. Rewrite the code to eliminate the goto.
+```cpp
+for(int sz = get_size(); sz <= 0; ;);
+```
+
+## ex5.23
+> Write a program that reads two integers from the standard input and prints the
+> result of dividing the first number by the second.
+
+[code](ex5_23.cpp)
+
+## ex5.24
+> Revise your program to throw an exception if the second number is zero. Test 
+> your program with a zero input to see what happens on your system if you don’t
+> catch an exception.
+
+Refer [ex5_23](ex5_23.cpp)
+
+## ex5.25
+> Revise your program from the previous exercise to use a try block to catch the
+> exception. The catch clause should print a message to the user and ask them to
+> supply a new number and repeat the code inside the try.
+
+Refer [ex5_23](ex5_23.cpp)

@@ -9,6 +9,9 @@ using std::string;
 int main(){
   string str, preStr;
   while(cin >> str){
+
+    if(!isupper(str[0])) continue;
+
     if(str == preStr){
       break;
     }
