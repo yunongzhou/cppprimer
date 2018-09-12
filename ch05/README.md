@@ -244,3 +244,106 @@ preceding unmatched if.
 
 (c) for(int ix = 0; ix != sz; ++ix, ++sz){/* ... */}
 ```
+
+
+```cpp
+    int ix = 0; // ix not defined in if statement
+(a) for(ix = 0; ix != sz; ++ix){/* ... */}
+    if(ix != sz) //... 
+
+(b) int ix;
+    for(; ix != sz; ++ix){/* ... */} // semicolon missing
+
+(c) for(int ix = 0; ix != sz; ++ix){/* ... */} // sz should not increment
+```
+
+## ex5.16
+> The while loop is particularly good at executing while some condition holds; 
+> for example, when we need to read values until end-of-file. The for loop is generally 
+> thought of as a step loop: An index steps through a range of values in a collection. 
+> Write an idiomatic use of each loop and then rewrite each using the other loop construct. 
+> If you could use only one loop, which would you choose? Why?
+```cpp
+// while idiomatic
+while(cin >> i){/* ... */}
+
+// replace by for loop
+for(int i = 0; cin >> i;){/* ... */}
+
+// for idiomatic
+for(int i = 0; i < sz; ++i){/* ... */}
+
+// replace by while
+int i = 0;
+while(i < sz){ 
+  /* ... */
+  ++i;
+}
+```
+I prefer for loop, because it is always one line.
+
+## ex5.17
+> Given two vectors of ints, write a program to determine whether one vector is a prefix 
+> of the other. For vectors of unequal length, compare the number of elements of the smaller
+> vector. For example, given the vectors containing 0, 1, 1, and 2 and 0, 1, 1, 2, 3, 5, 8, 
+> respectively your program should return true.
+
+[code](ex5_17.cpp)
+
+## ex5.18
+> Explain each of the following loops. Correct any problems you detect.
+```cpp
+(a) do
+      int v1, v2;
+      cout << "Please enter two numbers to sum:";
+      if(cin >> v1 >> v2)
+        cout << "Sum is:" << v1 + v2 << endl;
+    while(cin);
+
+(b) do{
+      // ...
+    }while(int ival = get_response());
+
+(c) do{
+      int ival = get_response();
+    }while(ival);
+```
+
+```cpp
+(a) do
+      int v1, v2; // curly brace missing
+      cout << "Please enter two numbers to sum:";
+      if(cin >> v1 >> v2)
+        cout << "Sum is:" << v1 + v2 << endl;
+    while(cin);
+
+(b) do{
+      // ...
+    }while(int ival = get_response()); // variable definition not allowed
+
+(c) do{
+      int ival = get_response();
+    }while(ival); // ival not declared 
+```
+
+## ex5.19
+> Write a program that uses a do while loop to repetitively request two strings 
+> from the user and report which string is less than the other.
+
+[code](ex5_19.cpp)
+
+## ex5.20
+> Write a program to read a sequence of strings from the standard input until 
+> either the same word occurs twice in succession or all the words have been 
+> read. Use a while loop to read the text one word at a time. Use the break 
+> statement to terminate the loop if a word occurs twice in succession. Print 
+> the word if it occurs twice in succession, or else print a message saying that
+> no word was repeated.
+
+[code](ex5_20.cpp)
+
+## ex5.21
+> Revise the program from the exercise in § 5.5.1 (p. 191) so that it looks only
+> for duplicated words that start with an uppercase letter.
+
+[code](ex5_21.cpp)
