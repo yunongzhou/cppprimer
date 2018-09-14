@@ -55,3 +55,54 @@ Refer [ex6.03](ex6_03.cpp)
 [code](ex6_05.cpp)
 
 ## ex6.06
+> Explain the differences between a parameter, a local variable, and a local 
+> static variable. Give an example of a function in which each might be useful.
+
+Parameter: local variable declared inside the function parameter list;
+
+local variable: variable defined inside a block;
+
+local static variable: local variable whose value persists across calls to the
+function. Local static variable that is created and initialized before control
+reaches their use and is destroyed when the program ends.
+
+```cpp
+int func(int a){ // a is parameter
+  static int n = 1; // n is local static variable
+
+  for(int i = a; a > 0; --i){ // i is local variable
+    n *= i;
+  }
+  return n;
+} // func
+```
+
+## ex6.07
+> Write a function that returns 0 when it is first called and then generates 
+> numbers in sequence each time it is called again.
+
+[code](ex6_07.cpp)
+
+## ex6.08
+> Write a header file named Chapter6.h that contains declarations for the 
+> functions you wrote for the exercises in § 6.1 (p. 205).
+
+[code](ex6_08.h)
+
+## ex6.09
+> Write your own versions of the fact.cc and factMain.cc files. These files 
+> should include your Chapter6.h from the exercises in the previous section. 
+> Use these files to understand how your compiler supports separate compilation.
+
+[fact.cpp](fact.cpp)
+
+[factMain.cpp](factMain.cpp)
+
+## ex6.10
+> Using pointers, write a function to swap the values of two ints. Test the 
+> function by calling it and printing the swapped values.
+
+[code](ex6_10.cpp)
+
+## ex6.11
+> 
