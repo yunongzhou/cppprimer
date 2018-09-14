@@ -105,4 +105,87 @@ int func(int a){ // a is parameter
 [code](ex6_10.cpp)
 
 ## ex6.11
-> 
+> Write and test your own version of reset that takes a reference.
+
+[code](ex6_11.cpp)
+
+## ex6.12
+> Rewrite the program from exercise 6.10 in § 6.2.1 (p. 210) to use references 
+> instead of pointers to swap the value of two ints. Which version do you think 
+> would be easier to use and why?
+
+[code](ex6_12.cpp)
+
+I think the reference version is much easier to use, because it is much 
+easier to understand.
+
+## ex6.13
+> Assuming T is the name of a type, explain the difference between a function 
+> declared as void f(T) and void f(T&).
+
+void f(T) will copy the object of type T, while void f(T&) avoids to copy the 
+object.
+
+## ex6.14
+> Give an example of when a parameter should be a reference type. Give an 
+> example of when a parameter should not be a reference.
+```cpp
+int reset(int &a){ // the parameter should be a reference type
+  a = 0;
+}
+
+// pezy's answer, the parameter should not be a reference type
+void print(std::vector<int>::iterator begin, std::vector<int>::iterator end){
+  for(std::vector<int>::iterator iter = begin; iter != end; ++iter)
+    std::cout << *iter << std::endl;
+}
+```
+
+## ex6.15
+> Explain the rationale for the type of each of find_char’s parameters In 
+> particular, why is s a reference to const but occurs is a plain reference? Why
+> are these parameters references, but the char parameter c is not? What would 
+> happen if we made s a plain reference? What if we made occurs a reference to 
+> const?
+
+Because we don't want to change the value of s, therefore, s is a reference to 
+const, occurs is a plain reference because it can be changed;
+
+Actually, we can set c as reference;
+
+If we made s a plain reference and made occurs a reference to const, s would be
+changable, and occurs unchangable, therefore, occurs = 0.
+
+## ex6.16
+> The following function, although legal, is less useful than it might be. 
+> Identify and correct the limitation on this function:
+```cpp
+bool is_empty(string& s) { return s.empty(); }
+```
+
+```cpp
+bool is_empty(const string& s) { return s.empty(); }
+```
+
+This function doesn't change s, therefore, we should use const
+
+## ex6.17
+> Write a function to determine whether a string contains any capital letters. 
+> Write a function to change a string to all lowercase. Do the parameters you 
+> used in these functions have the same type? If so, why? If not, why not?
+
+no, the first function doesn't change the string, hence, the parameters should 
+be const, the second function should be plain string.
+
+[code](ex6_17.cpp)
+
+## ex6.18
+> Write declarations for each of the following functions. When you write these 
+> declarations, use the name of the function to indicate what the function does.
+>
+> (a) A function named compare that returns a bool and has two parameters that 
+>     are references to a class named matrix.
+>
+> (b) A function named change_val that returns a vector<int> iterator and takes 
+>     two parameters: One is an int and the other is an iterator for a 
+>     vector<int>.
