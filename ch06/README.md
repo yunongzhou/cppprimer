@@ -298,3 +298,59 @@ const reference bound to string.
 Depends on the type of elements of initializer_list. When the type is PODType, 
 reference is unnecessary. Because POD is cheap to copy(such as int). Otherwise,
 Using reference(const) is the better choice.
+
+## ex6.30
+> Compile the version of str_subrange as presented on page 223 to see what your 
+> compiler does with the indicated errors.
+
+error: non-void function 'str_subrange' should return a value [-Wreturn-type]
+
+return;
+
+1 error generated.
+
+## ex6.31
+> When is it valid to return a reference? A reference to const?
+
+When you can find the preexist object that the reference bound;
+
+When you can find the preexist const object that the reference bound.
+
+## ex6.32
+> Indicate whether the following function is legal. If so, explain
+> what it does; if not, correct any errors and then explain it.
+
+```cpp
+int &get(int *arry, int index){ return arry[index];} 
+int main() {
+  int ia[10];
+  for (int i = 0; i != 10; ++i)
+    get(ia, i) = i;
+}
+```
+
+legal, it assigns the index value to the array.
+
+## ex6.33
+> Write a recursive function to print the contents of a vector.
+
+[code](ex6_33.cpp)
+
+## ex6.34
+> What would happen if the stopping condition in factorial were
+> if(val != 0)
+
+~~The output will not change.~~
+
+Two situations can happen: case1, if the argument is positive, recursion
+stops at 0. case2, if the argument is negative, recursion would never
+stop. As a result, a stack overflow would occur.
+
+##ex6.35
+> In the call to fact, why did we pass val - 1 rather than val--?
+
+Because val-- will return val, therefore, var will always be the parameter
+of this function, as a result, the function will never stop.
+
+## ex6.36
+> 
