@@ -189,3 +189,112 @@ be const, the second function should be plain string.
 > (b) A function named change_val that returns a vector<int> iterator and takes 
 >     two parameters: One is an int and the other is an iterator for a 
 >     vector<int>.
+
+```cpp
+bool compare(const matrix&, const matrix&);
+
+vector<int>::iterator change_val(int, vector<int>::iterator);
+```
+
+## ex6.19
+> Given the following declarations, determine which calls are legal and which 
+> are illegal. For those that are illegal, explain why.
+```cpp
+double calc(double);
+int count(const string &, char);
+int sum(vector<int>::iterator, vector<int>::iterator, int);
+vector<int> vec(10);
+(a) calc(23.4, 55.1);
+(b) count("abcda", 'a');
+(c) calc(66);
+(d) sum(vec.begin(), vec.end(), 3.8);
+```
+
+(a) illegal, only one parameter;
+
+(b) legal;
+
+(c) legal;
+
+(d) legal;
+
+## ex6.20
+> When should reference parameters be references to const? What happens if we 
+> make a parameter a plain reference when it could be a reference to const?
+
+When we want to read the parameter, but don't want to write the parameter, use
+reference to const.
+
+## ex6.21
+> Write a function that takes an int and a pointer to an int and returns the 
+> larger of the int value or the value to which the pointer points. What type 
+> should you use for the pointer?
+
+[code](ex6_21.cpp)
+
+## ex6.22
+> Write a function to swap two int pointers.
+
+[code](ex6_22.cpp)
+
+## ex6.23
+> Write your own versions of each of the print functions presented in this 
+> section. Call each of these functions to print i and j defined as follows:
+> int i = 0, j[2] = {0, 1};
+
+[code](ex6_23.cpp)
+
+## ex6.24
+> Explain the behavior of the following function. If there are problems in the 
+> code, explain what they are and how you might fix them.
+```cpp
+void print(const int ia[10]){
+  for (size_t i = 0; i != 10; ++i)
+   cout << ia[i] << endl;
+}
+```
+This function wants to print all the elements of an array. 
+
+because we cannot copy an array, we cannot pass an array by value. In C++,
+a parameter declared as int ia[10] or as int ia[1024] is actually declared
+as int *ia.
+
+```cpp
+void print(const int (&ia)[10]){
+  for(size_t i = 0; i != 10; ++i)
+    cout << ia[10] << endl;
+}
+```
+
+## ex6.25
+> Write a main function that takes two arguments. Concatenate the supplied 
+> arguments and print the resulting string.
+
+[code](ex6_25.cpp)
+
+## ex6.26
+> Write a program that accepts the options presented in this section. Print the 
+> values of the arguments passed to main.
+
+[code](ex6_25.cpp)
+
+## ex6.27
+> Write a function that takes an initializer_list<int> and produces the sum of 
+> the elements in the list.
+
+[code](ex6_27.cpp)
+
+## ex6.28
+> In the second version of error_msg that has an ErrCode parameter, what is the 
+> type of elem in the for loop?
+
+const reference bound to string.
+
+## ex6.29
+> When you use an initializer_list in a range for would you ever use a reference
+> as the loop control variable? If so, why? If not, why not?
+
+[*Pezy's answer:*](https://github.com/pezy/CppPrimer/tree/master/ch06)
+Depends on the type of elements of initializer_list. When the type is PODType, 
+reference is unnecessary. Because POD is cheap to copy(such as int). Otherwise,
+Using reference(const) is the better choice.
