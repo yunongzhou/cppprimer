@@ -346,7 +346,7 @@ Two situations can happen: case1, if the argument is positive, recursion
 stops at 0. case2, if the argument is negative, recursion would never
 stop. As a result, a stack overflow would occur.
 
-##ex6.35
+## ex6.35
 > In the call to fact, why did we pass val - 1 rather than val--?
 
 Because val-- will return val, therefore, var will always be the parameter
