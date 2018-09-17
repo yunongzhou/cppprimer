@@ -397,7 +397,7 @@ decltype(odd) &arrPtr(int i){
 (a) ~~illegal;~~ legal, repeated declarations(without definition) are legal in 
 C++;
 
-(b) ~~legal;~~illegal, only the return type is different;
+(b) ~~legal;~~ illegal, only the return type is different;
 
 (c) legal, the parameter type is different and return type is changed.
 
