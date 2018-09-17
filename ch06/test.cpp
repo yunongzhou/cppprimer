@@ -1,16 +1,11 @@
 #include<iostream>
 
-using std::cin;
-using std::cout;
-using std::endl;
-
-int fact(int val){
-  if(val > 1)
-    return fact(val--) * val;
-  return 1;
+int get(){
+  return 0;
 }
 
-int main(){
-  cout << fact(5) << endl;
+double get(){
   return 0;
+}
+int main(){
 } // main
