@@ -17,3 +17,5 @@
 -[Chapter 5. Statements](ch05/README.md)
 
 -[Chapter 6. Functions](ch06/README.md)
+
+-[Chapter 7. Classes](ch07/README.md)
