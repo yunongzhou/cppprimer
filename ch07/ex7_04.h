@@ -1,5 +1,6 @@
+#include<string>
+
 class Person{
-  public:
-    string name;
-    string address;
+  std::string name;
+  std::string address;
 };

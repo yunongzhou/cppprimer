@@ -22,3 +22,53 @@
 > incrementally add features to this class.
 
 [code](ex7_04.h)
+
+## ex7.05
+> Provide operations in your Person class to return the name and address. 
+> Should these functions be const? Explain your choice.
+
+[code](ex7_05.h)
+
+## ex7.06
+> Define your own versions of the add, read, and print functions.
+
+[code](ex7_06.h)
+
+## ex7.07
+> Rewrite the transaction-processing program you wrote for the exercises 
+> in § 7.1.2 (p. 260) to use these new functions.
+
+[code](ex7_07.cpp)
+
+## ex7.08
+> Why does read define its Sales_data parameter as a plain reference and print 
+> define its parameter as a reference to const?
+
+Because the value of revenue will be changed when dealing with read;
+
+When dealing with print, nothing will be changed, hence we'd like to use
+const.
+
+## ex7.09
+> Add operations to read and print Person objects to the code you wrote for the 
+> exercises in § 7.1.2 (p. 260).
+
+[code](ex7_09.h)
+
+## ex7.10
+> What does the condition in the following if statement do?
+```cpp
+if (read(read(cin, data1), data2))
+```
+
+read data1 and data2 at the same time.
+
+## ex7.11
+> Add constructors to your Sales_data class and write a program to use each of 
+> the constructors.
+
+[code](ex7_11.h)
+
+## ex7.12
+> Move the definition of the Sales_data constructor that takes an istream into 
+> the body of the Sales_data class.
