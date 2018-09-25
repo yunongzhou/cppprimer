@@ -72,3 +72,18 @@ read data1 and data2 at the same time.
 ## ex7.12
 > Move the definition of the Sales_data constructor that takes an istream into 
 > the body of the Sales_data class.
+
+[code](ex7_12.h)
+
+## ex7.13
+> Rewrite the program from page 255 to use the istream constructor.
+
+[code](ex7_13.cpp)
+
+## ex7.14
+> Write a version of the default constructor that explicitly initializes the 
+> members to the values we have provided as in-class initializers.
+
+```cpp
+Sales_data():units_sold(0), revenue(0){}
+```
