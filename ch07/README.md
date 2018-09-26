@@ -92,3 +92,42 @@ Sales_data():units_sold(0), revenue(0){}
 > Add appropriate constructors to your Person class.
 
 [code](ex7_15.h)
+
+## ex7.16
+> What, if any, are the constraints on where and how often an access specifier 
+> may appear inside a class definition? What kinds of members should be defined 
+> after a public specifier? What kinds should be private?
+
+There is no constraints on how often an access specifier may appear.
+
+The members which are accessible to all parts of the program should be defined 
+after a public specifier;
+
+The members which are accessible to the member functions of the class but are 
+not accessible to code that uses the class should be defined after a private
+specifier.
+
+## ex7.17
+> What, if any, are the differences between using class or struct?
+
+The only difference between struct and class is the default access level.
+
+## ex7.18
+> What is encapsulation? Why is it useful?
+
+Separation of implementation from interface; encapsulation hides the 
+implementation details of a type. In C++, encapsulation is enforced by
+putting the implementation in the private part of a class.
+
+It is useful because:
+  * User code cannot inadvertently corrupt the state of an encapsulated object;
+  * The implementation of an encapsulated class can change over time without 
+requiring changes in user-level code.
+
+## ex7.19
+> Indicate which members of your Person class you would declare as public and 
+> which you would declare as private. Explain your choice.
+
+constructors and member functions would be public;
+
+The name and address would be private.
