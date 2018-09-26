@@ -87,3 +87,8 @@ read data1 and data2 at the same time.
 ```cpp
 Sales_data():units_sold(0), revenue(0){}
 ```
+
+## ex7.15
+> Add appropriate constructors to your Person class.
+
+[code](ex7_15.h)
