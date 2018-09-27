@@ -131,3 +131,48 @@ requiring changes in user-level code.
 constructors and member functions would be public;
 
 The name and address would be private.
+
+## ex7.20
+> When are friends useful? Discuss the pros and cons of using friends.
+
+A class can allow another class or function to access its nonpublic members by 
+making that class or function a friend.
+
+## ex7.21
+> Update your Sales_data class to hide its implementation. The programs you’ve 
+> written to use Sales_data operations should still continue to work. Recompile 
+> those programs with your new class definition to verify that they still work.
+
+[code](ex7_21.h)
+
+## ex7.22
+> Update your Person class to hide its implementation.
+
+[code](ex7_22.h)
+
+## ex7.23
+> Write your own version of the Screen class.
+
+[code](ex7_23.h)
+
+## ex7.24
+> Give your Screen class three constructors: a default constructor; a 
+> constructor that takes values for height and width and initializes the 
+> contents to hold the given number of blanks; and a constructor that takes 
+> values for height, width, and a character to use as the contents of the 
+> screen.
+
+[code](ex7_24.h)
+
+## ex7.25
+> Can Screen safely rely on the default versions of copy and assignment? If so, 
+> why? If not, why not?
+
+No, only built-in type can rely on the default versions of copy and assignment.
+(refer Section 7.1.5)
+
+## ex7.26
+> Define Sales_data::avg_price as an inline function.
+
+[header file](ex7_26.h)
+[function file](ex7_26.cpp)

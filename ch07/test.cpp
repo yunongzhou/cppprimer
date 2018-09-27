@@ -1,8 +1,11 @@
 #include<iostream>
-#include "ex7_15.h"
+#include "ex7_23.h"
 
 using std::cin;
 
 int main(){
-  Person per(std::cin);
+  Screen myscreen;
+  char ch = myscreen.get();
+  ch = myscreen.get(0, 0);
+  return 0;
 } // main
