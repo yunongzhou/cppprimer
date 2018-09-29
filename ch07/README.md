@@ -176,3 +176,51 @@ No, only built-in type can rely on the default versions of copy and assignment.
 
 [header file](ex7_26.h)
 [function file](ex7_26.cpp)
+
+## ex7.27
+> Add the move, set, and display operations to your version of Screen. Test your
+> class by executing the following code:
+```cpp
+Screen myScreen(5, 5, 'X'); 
+myScreen.move(4,0).set('#').display(cout); 
+cout << "\n";
+myScreen.display(cout);
+cout << "\n";
+```
+
+[code](ex7_27.h)
+
+## ex7.28
+> What would happen in the previous exercise if the return type of move, set, 
+> and display was Screen rather than Screen&?
+
+If the return type was Screen, which means that they return the copy of the
+object, hence, when we change myScreen, we change the copy of myScreen, not 
+the myScreen itself.
+
+## ex7.29
+> Revise your Screen class so that move, set, and display functions return 
+> Screen and check your prediction from the previous exercise.
+
+[code](ex7_29.h)
+
+## ex7.30
+> It is legal but redundant to refer to members through the this pointer. 
+> Discuss the pros and cons of explicitly using the this pointer to access 
+> members.
+
+Pros:
+* You can modify the object directly;
+
+Cons:
+* Sometimes it cost a lot of cpu time;
+
+## ex7.31
+> Define a pair of classes X and Y, in which X has a pointer to Y, and Y has an 
+> object of type X.
+
+[code](ex7_31.h)
+
+## ex7.32
+> Define your own versions of Screen and Window_mgr in which clear is a member 
+> of Window_mgr and a friend of Screen.
