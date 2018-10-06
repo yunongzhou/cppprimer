@@ -224,3 +224,5 @@ Cons:
 ## ex7.32
 > Define your own versions of Screen and Window_mgr in which clear is a member 
 > of Window_mgr and a friend of Screen.
+
+[code](ex7_32.h)
