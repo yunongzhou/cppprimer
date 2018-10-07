@@ -226,3 +226,151 @@ Cons:
 > of Window_mgr and a friend of Screen.
 
 [code](ex7_32.h)
+
+## ex7.33
+> What would happen if we gave Screen a size member defined as follows? Fix any 
+> problems you identify.
+
+```cpp
+pos Screen::size() const
+{
+  return height * width;
+}
+```
+
+```cpp
+Screen::pos Screen::size() const{
+  return height * width;
+}
+```
+
+## ex7.34
+> What would happen if we put the typedef of pos in the Screen class on page 285
+> as the last line in the class?
+
+The compiler will not able to find the definition of pos.
+
+## ex7.35
+> Explain the following code, indicating which definition of Type or initVal is 
+> used for each use of those names. Say how you would fix any errors.
+```cpp
+typedef string Type; 
+Type initVal(); 
+class Exercise { 
+  public:
+    typedef double Type; 
+    Type setVal(Type); 
+    Type initVal();
+  private:
+    int val; 
+};
+
+Type Exercise::setVal(Type parm) { 
+  val = parm + initVal();
+  return val; 
+}
+```
+```cpp
+typedef string Type;
+Type initVal();  // string
+class Exercise { 
+  public:
+    typedef double Type; 
+    Type setVal(Type);  // double 
+    Type initVal(); // double 
+  private:
+    int val; 
+};
+
+Exercise::Type Exercise::setVal(Type parm) { // string, double 
+  val = parm + initVal(); // initVal in class
+  return val; 
+}
+```
+
+## ex7.36
+> The following initializer is in error. Identify and fix the problem.
+```cpp
+struct X {
+  X (int i, int j): base(i), rem(base % j) { }
+  int rem, base; 
+ };
+```
+```cpp
+X (int i, int j): base(i), rem(base % j) { }
+  int base, rem;
+};
+```
+
+## ex 7.37
+> Using the version of Sales_data from this section, determine which constructor
+> is used to initialize each of the following variables and list the values of 
+> the data members in each object:
+```cpp
+Sales_data first_item(cin); // Sales_data(std::istream &is);
+
+int main(){ 
+  // Sales_data(std::string s = ""): bookNo(s){}
+  Sales_data next; 
+  //Sales_data(std::string s = ""):bookNo(s){}
+  Sales_data last("9-999-99999-9");
+}
+```
+
+## ex7.38
+> We might want to supply cin as a default argument to the constructor that 
+> takes an istream&. Write the constructor declaration that uses cin as a 
+> default argument.
+
+```cpp
+class X{
+  X(std::istream &is){}
+};
+```
+
+## ex7.39
+> Would it be legal for both the constructor that takes a string and the one 
+> that takes an istream& to have default arguments? If not, why not?
+
+~~legal.~~
+illegal, because the call of overloaded 'Sales_data()' is ambiguous.
+
+## ex7.40
+> Choose one of the following abstractions (or an abstraction of your own 
+> choosing). Determine what data are needed in the class. Provide an appropriate
+> set of constructors. Explain your decisions.
+>
+> (a) Book
+>
+> (b) Date
+>
+> (c) Employee 
+>
+> (d) Vehicle 
+>
+> (e) Object 
+>
+> (f) Tree
+
+Date:
+```cpp
+class Date{
+  public:
+    Date() = default;
+    Date(unsigned year, unsigned month, unsigned day):YY(year), MM(month), 
+    DD(day){}
+    Date(std::istream &in){in >> YY >> MM >> DD;}
+
+  private:
+    unsigned MM, YY, DD;
+};
+```
+
+## ex7.41
+> Rewrite your own version of the Sales_data class to use delegating 
+> constructors. Add a statement to the body of each of the constructors that 
+> prints a message whenever it is executed. Write declarations to construct a 
+> Sales_data object in every way possible. Study the output until you are 
+> certain you understand the order of execution among delegating constructors.
+
+[code](ex7_41.h)
