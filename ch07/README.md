@@ -374,3 +374,76 @@ class Date{
 > certain you understand the order of execution among delegating constructors.
 
 [code](ex7_41.h)
+
+## ex7.42
+> For the class you wrote for exercise 7.40 in § 7.5.1 (p. 291), decide whether 
+> any of the constructors might use delegation. If so, write the delegating 
+> constructor(s) for your class. If not, look at the list of abstractions and 
+> choose one that you think would use a delegating constructor. Write the class 
+> definition for that abstraction.
+```cpp
+class Date{
+  public:
+    Date(unsigned year, unsigned month, unsigned day):YY(year), MM(month),
+    DD(day){ }
+    Date() Date(0,0,0){}
+    Date(std::istream &in):Date(){in >> YY >> MM >> DD;}
+
+  private:
+    unsigned MM, YY, DD;
+};
+```
+
+## ex7.43
+> Assume we have a class named NoDefault that has a constructor that takes an 
+> int, but has no default constructor. Define a class C that has a member of 
+> type NoDefault. Define the default constructor for C.
+
+```cpp
+class C{
+  public:
+    C(): mem(0) {}
+
+  private:
+    NoDefault mem;
+};
+```
+
+## ex7.44
+> Is the following declaration legal? If not, why not?
+```cpp
+vector<NoDefault> vec(10);
+```
+illegal, because the elements of vec should be initialized, while there is no 
+default constructor for NoDefault type.
+
+## ex7.45
+> What if we defined the vector in the previous execercise to hold objects of 
+> type C?
+
+Legal, because C has the default constructor.
+
+## ex7.46
+> Which, if any, of the following statements are untrue? Why?
+>
+> (a) A class must provide at least one constructor.
+>
+> (b) A default constructor is a constructor with an empty parameter list.
+>
+> (c) If there are no meaningful default values for a class, the class should 
+> not provide a default constructor.
+>
+> (d) If a class does not define a default constructor, the compiler generates 
+> one that initializes each data member to the default value of its associated 
+> type.
+
+(a) Untrue, if our class does not explicitly define any constructors, the
+compiler will implicitly define the default constructor for us.
+
+(b) Untrue, default constructor is constructor that is used if no initializer
+is supplied.
+
+(c) Untrue, The class should provide.
+
+(d) Untrue, if a class does not define any constructor, the compiler will 
+generate default constructor.
