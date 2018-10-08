@@ -447,3 +447,120 @@ is supplied.
 
 (d) Untrue, if a class does not define any constructor, the compiler will 
 generate default constructor.
+
+## ex7.47
+> Explain whether the Sales_data constructor that takes a string should be 
+> explicit. What are the benefits of making the constructor explicit? What are 
+> the drawbacks?
+
+pezy's answer:
+
+Whether the conversion of a string to Sales_data is desired depends on how we
+think our users will use the conversion. In this case, it might be okay. The 
+string in null_book probably represents a nonexistent ISBN.
+
+Benefits:
+
+* prevent the use of a constructor in the context that requires an implicit 
+conversion;
+
+* we can define a constructor which is used only with the direct form of 
+initialization.
+
+Drawbacks:
+
+* meanlingful only on constructors that can be called with a single argument.
+
+## ex7.48
+> Assuming the Sales_data constructors are not explicit, what operations happen 
+> during the following definitions
+>
+> string null_isbn("9-999-99999-9"); 
+>
+> Sales_data item1(null_isbn); 
+>
+> Sales_data item2("9-999-99999-9");
+
+pezy's answer: Nothing happened.
+
+## ex7.49
+> For each of the three following declarations of combine, explain what happens 
+> if we call i.combine(s), where i is a Sales_data and s is a string:
+>
+> (a) Sales_data &combine(Sales_data); 
+>
+> (b) Sales_data &combine(Sales_data&);
+>
+> (c) Sales_data &combine(const Sales_data&) const;
+
+(a) s will be converted to Sales_data 
+
+(b) Error;
+
+(c) Error;
+
+## ex7.50
+> Determine whether any of your Person class constructors should be explicit.
+```cpp
+explicit Person(std::istream &is){
+  read(is, *this);
+}
+```
+
+## ex7.51
+> Why do you think vector defines its single-argument constructor as explicit, 
+> but string does not?
+
+pezy's answer:
+
+such as a function like this:
+```cpp
+int getSize(const std::vector<int> &);
+```
+if vector has not defined its single-argument constructor as explicit. we can 
+use this function like:
+getSize(34);
+
+It is very confused.
+
+But the string is different. In ordinary, we use string to replace const char*. 
+So when we call a function like that:
+```cpp
+void setYourName(std::string);
+setYourName("pezy")
+```
+it is very natural.
+
+## ex7.52
+> Using our first version of Sales_data from § 2.6.1 (p. 72), explain the 
+> following initialization. Identify and fix any problems.
+```cpp
+Sales_data item = {"978-0590353403", 25, 15.99};
+```
+This initialization supposed that the class is aggregate class, and the 
+initializers should be in special order.
+
+## ex7.53
+> Define your own version of Debug.
+
+[code](ex7_53.h)
+
+## ex7.54
+> Should the members of Debug that begin with set_ be declared as constexpr? If 
+> not, why not?
+
+No, because the errors could be different, in this case, the return statement
+would be different.
+
+## ex7.55
+> Is the Data class from § 7.5.5 (p. 298) a literal class? If not, why not? If 
+> so, explain why it is literal.
+
+No, because string is not literal type.
+
+## ex7.56
+> What is a static class member? What are the advantages of static members? How 
+> do they differ from ordinary members?
+
+A member is associated with the class by adding the keyword static to its 
+declaration is a static class member.
