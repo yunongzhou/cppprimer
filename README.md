@@ -19,3 +19,5 @@
 -[Chapter 6. Functions](ch06/README.md)
 
 -[Chapter 7. Classes](ch07/README.md)
+
+-[Chapter 8. The IO Library](ch08/README.md)
