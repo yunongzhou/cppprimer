@@ -89,3 +89,8 @@ Because we need a aggregate class here.
 > rather than from cin.
 
 [code](ex8_13.cpp)
+
+## ex8.14
+> Why did we declare entry and nums as const auto &?
+
+Because we didn't change their values.
