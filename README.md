@@ -21,3 +21,5 @@
 -[Chapter 7. Classes](ch07/README.md)
 
 -[Chapter 8. The IO Library](ch08/README.md)
+
+-[Chapter 9. Sequential Containers](ch09/README.md)
