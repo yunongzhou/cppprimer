@@ -169,3 +169,145 @@ if(c1 < c2)
 
 * The types of c1 and c2 should be identical and the element type should be 
 identical.
+
+## ex9.18
+> Write a program to read a sequence of strings from the standard input into a 
+> deque. Use iterators to write a loop to print the elements in the deque. 
+
+[code](ex9_18.cpp)
+
+## ex9.19
+> Rewrite the program from the previous exercise to use a list. List the changes
+> you needed to make.
+
+[code](ex9_19.cpp)
+
+## ex9.20
+> Write a program to copy elements from a list<int> into two deques. The 
+> even-valued elements should go into one deque and the odd ones into the other.
+
+[code](ex9_20.cpp)
+
+## ex9.21
+> Explain how the loop from page 345 that used the return from insert to add 
+> elements to a list would work if we inserted into a vector instead.
+
+The explanation is exactly the same as list<int>.
+
+## ex9.22
+> Assuming iv is a vector of ints, what is wrong with the following program? How
+> might you correct the problem(s)?
+```cpp
+vector<int>::iterator iter = iv.begin(),
+mid = iv.begin() + iv.size()/2;
+while (iter != mid)
+  if (*iter == some_val)
+    iv.insert(iter, 2 * some_val);
+```
+It is dead loop, the fixed version is listed below.
+```cpp
+vector<int>::iterator iter = iv.begin(),
+mid = iv.begin() + iv.size()/2;
+while (iter != mid){
+  if (*iter == some_val){
+    iv.insert(iter, 2 * some_val);
+    iter++;
+  }
+}
+```
+
+## ex9.23
+> In the first program in this section on page 346, what would the values of 
+> val, val2, val3, and val4 be if c.size() is 1?
+
+val = *c.begin();
+
+val2 = c.front() = *c.begin() = val;
+
+~~val3 = *(--last) = undefined;~~ val3 = *(--last) = val;
+
+val4 = c.back() = *c.begin() = val;
+
+## ex9.24
+> Write a program that fetches the first element in a vector using at, the 
+> subscript operator, front, and begin. Test your program on an empty vector.
+
+[code](ex9_24.cpp)
+
+## ex9.25
+> In the program on page 349 that erased a range of elements, what happens if 
+> elem1 and elem2 are equal? What if elem2 or both elem1 and elem2 are the 
+> off-the-end iterator?
+
+~~If elem1 and elem2 are equal, it will erase only one element which is equals 
+to elem1;~~  nothing would happen;
+
+if elem2 is the off-the-end iterator, it will erase from elem1 to the end;
+
+if elem1 and elem2 are off-the-end iterator, nothing would happen.
+
+## ex9.26
+> Using the following definition of ia, copy ia into a vector and into a list. 
+> Use the single-iterator form of erase to remove the elements with odd values 
+> from your list and the even values from your vector.
+```cpp
+int ia[] = { 0, 1, 1, 2, 3, 5, 8, 13, 21, 55, 89 };
+```
+[code](ex9_26.cpp)
+
+## ex9.27
+> Write a program to find and remove the odd-valued elements in a 
+> forward_list<int>.
+
+[code](ex9_27.cpp)
+
+## ex9.28
+> Write a function that takes a forward_list<string> and two additional string 
+> arguments. The function should find the first string and insert the second 
+> immediately following the first. If the first string is not found, then insert
+> the second string at the end of the list.
+
+[code](ex9_28.cpp)
+
+## ex9.29
+> Given that vec holds 25 elements, what does vec.resize(100) do? What if we 
+> next wrote vec.resize(10)?
+
+vec.resize(100) will add 75 elements of value 0 to the back of vec;
+vec.resize(10) will delete 90 elements from the back of vec.
+
+## ex9.30
+> What, if any, restrictions does using the version of resize that takes a 
+> single argument place on the element type?
+
+If the container holds elements of a class type and resize adds elements, we
+must supply an initializer or the element type must have a default constructor.
+
+## ex9.31
+> The program on page 354 to remove even-valued elements and duplicate odd ones 
+> will not work on a list or forward_list. Why? Revise the program so that it 
+> works on these types as well. 
+
+Because forward_list cannot use erase function.
+
+[list](ex9_31_1.cpp)
+
+[forward_list](ex9_31_2.cpp)
+
+## ex9.32
+> In the program onpage 354 would it be legal to write the call to insert as 
+> follows? If not, why not?
+```cpp
+iter = vi.insert(iter, *iter++);
+```
+~~It is legal.~~ 
+The statement is illegal, after entering function insert, iter could be its
+original value or original value + 1 or even anything else, depending on how
+compiler implemented.
+
+## ex9.33
+> In the final example in this section what would happen if we did not assign 
+> the result of insert to begin? Write a program that omits this assignment to 
+> see if your expectation was correct.
+
+[code](ex9_33.cpp)
