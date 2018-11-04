@@ -1,5 +1,5 @@
 # executable files
-*.out
+a.out
 
 # specified files
 test.cpp

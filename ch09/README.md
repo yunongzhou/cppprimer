@@ -310,4 +310,88 @@ compiler implemented.
 > the result of insert to begin? Write a program that omits this assignment to 
 > see if your expectation was correct.
 
+segmentation fault: 11. After insert, the iterator is invalid.
+
 [code](ex9_33.cpp)
+
+## ex9.34
+> Assuming vi is a container of ints that includes even and odd values, predict 
+> the behavior of the following loop. After you’ve analyzed this loop, write a 
+> program to test whether your expectations were correct.
+```cpp
+iter = vi.begin();
+while (iter != vi.end())
+  if (*iter % 2)
+    iter = vi.insert(iter, *iter);
+  ++iter;
+```
+The program will lead to dead loop.
+[code](ex9_34.cpp)
+
+## ex9.35
+> Explain the difference between a vector’s capacity and its size.
+
+The size of a container is the number of elements it already hods; its capacity 
+is how many elements it can hold before more space must be allocated.
+
+## ex9.36
+> Can a container have a capacity less than its size?
+No.
+
+## ex9.37
+> Why don’t list or array have a capacity member?
+
+array has fixed size, and list doesn't store continuously, therefore, they don't
+have a capacity member.
+
+## ex9.38
+> Write a program to explore how vectors grow in the library you use.
+
+[code](ex9_38.cpp)
+
+## ex9.39
+> Explain what the following program fragment does:
+```cpp
+vector<string> svec; 
+svec.reserve(1024); 
+string word;
+while (cin >> word)
+  svec.push_back(word);
+svec.resize(svec.size()+svec.size()/2);
+```
+This program declares a vector of string with name svec, after that, svec
+allocates space for 1024 elements. Then declare a string with name word,
+input word from screen, and create an element with value word at the end
+of svec. Finally, resize svec to have 1024+512 elements.
+
+## ex9.40
+> If the program in the previous exercise reads 256 words, what is its likely 
+> capacity after it is resized? What if it reads 512? 1,000? 1,048?
+
+If reads 256 words, the size is 384, the capacity is 1024,
+
+if reads 512 words, the size is 768, the capacity is 1024,
+
+if reads 1000 words, the size is 1500, the capacity is 2048,
+
+if reads 1048 words, the size is 1572, the capacity is 2048.
+
+## ex9.41
+> Write a program that initializes a string from a vector<char>.
+
+[code](ex9_41.cpp)
+
+## ex9.42
+> Given that you want to read a character at a time into a string, and you know 
+> that you need to read at least 100 characters, how might you improve the 
+> performance of your program?
+
+Use member reserve(120) to allocate enough space for this string.(@Mooophy)
+
+## ex9.43
+> Write a function that takes three strings, s, oldVal, and newVal. Using 
+> iterators, and the insert and erase functions replace all instances of oldVal 
+> that appear in s by newVal. Test your function by using it to replace common 
+> abbreviations, such as “tho” by “though” and “thru” by “through”.
+
+[code](ex9_43.cpp)(@pezy)
