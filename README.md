@@ -23,3 +23,5 @@
 -[Chapter 8. The IO Library](ch08/README.md)
 
 -[Chapter 9. Sequential Containers](ch09/README.md)
+
+-[Chapter 10. Generic Algorithms](ch10/README.md)
